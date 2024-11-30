@@ -1,0 +1,71 @@
+#FORMULARIO
+
+import os
+import pyautogui as pg
+import time
+
+# Variaveis globais/ Nome da pasta é a pasta onde está os arquivos do formulario
+# NOME DA PASTA, O r é o caminho da pasta onde estão os arquivos 
+arquivos = ""
+nomeDaPasta = r"C:\Users\Aluno\Desktop\Roma Aulas Python\Pasta formulario"
+
+def AbrirChrome():
+    os.system("start chrome")
+    time.sleep(2)
+
+def AbrirFormulario():
+    pg.typewrite("https://forms.gle/i3APS9jk55XSV4nh9")
+    time.sleep(1)  
+    pg.press("Enter")
+    time.sleep(5)
+
+
+def LerArquivos():
+    global arquivos
+    arquivos = os.listdir(nomeDaPasta)
+    # print(arquivos)
+    # listdir vai ler os arquivos desta pasta que vai ler (nome da pasta definido lá em cima)
+
+
+def PreencherNome():
+    for i in range(2):
+        pg.press("tab")
+    pg.typewrite("Romane")
+    time.sleep(1)
+
+def PreencherCurso():
+    pg.press("tab")
+    pg.typewrite("Programacao de Python") 
+    time.sleep(1)
+
+def SelecionarArquivo():
+    pg.press("tab")  
+    pg.press("Enter")
+    time.sleep(5)
+    for i in range (5):
+        pg.press("Tab")
+    pg.press("Enter")
+    time.sleep(1)
+    pg.typewrite(f"{nomeDaPasta}\{arquivos[0]}")
+    time.sleep(1)
+    pg.press("Enter")
+    time.sleep(7)
+
+
+def EnviarFormulario():
+    pg.press("tab") 
+    pg.press("tab") 
+    pg.press("Enter") 
+
+AbrirChrome()
+AbrirFormulario()
+LerArquivos()
+PreencherNome()
+PreencherCurso()
+SelecionarArquivo()
+EnviarFormulario()
+# Para cada função de DEF criar a função executar, se foi criado a def AbrirChrome no final 
+# das funções colocar AbrirChrome() e assim por diante
+
+
+
